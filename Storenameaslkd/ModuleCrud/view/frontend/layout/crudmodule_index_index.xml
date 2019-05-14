@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Storenameaslkd_ModuleCrud::core.css"/>
+        <script src="Storenameaslkd_ModuleCrud::core.js"/>
+    </head>
+    <body>
+        <referenceBlock name="page.main.title">
+            <action method="setPageTitle">
+                <argument translate="true" name="title" xsi:type="string">
+                    <?php $helper = $this->helper('Storenameaslkd\ModuleCrud\Helper\Data');
+                        echo $helper->getConfig('helloworld/general/display_h1');
+                        ?>
+                </argument>
+            </action>
+        </referenceBlock>
+    <referenceContainer name="content">
+        <block class="Storenameaslkd\ModuleCrud\Block\Index" name="crud" template="index.phtml" cacheable="false"/>
+    </referenceContainer>
+</body>
+</page>

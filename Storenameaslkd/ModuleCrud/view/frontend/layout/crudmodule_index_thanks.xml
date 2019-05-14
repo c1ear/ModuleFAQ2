@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Storenameaslkd_ModuleCrud::core.css"/>
+        <script src="Storenameaslkd_ModuleCrud::core.js"/>
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <block class="Storenameaslkd\ModuleCrud\Block\Thanks" name="crud" template="thanks.phtml" cacheable="false"/>
+        </referenceContainer>
+    </body>
+</page>

@@ -1,0 +1,23 @@
+{
+  "name": "storenameaslkd/modulecrud",
+  "description": "summary",
+  "license": [
+    "OSL-3.0"
+  ],
+  "type": "magento2-module",
+  "version": "0.0.3",
+  "authors": [
+    {
+      "name": "Oleg Grom",
+      "email": "gromadyuk@gmail.com",
+      "homepage": "https://github.com/",
+      "role": "Developer"
+    }
+  ],
+  "autoload": {
+    "files": [ "registration.php" ],
+    "psr-4": {
+      "Storenameaslkd\\ModuleCrud\\": ""
+    }
+  }
+}

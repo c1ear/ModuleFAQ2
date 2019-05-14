@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Storenameaslkd_ModuleCrud::greetings" title="FAQ" translate="title" module="Storenameaslkd_ModuleCrud" parent="Magento_Backend::content" sortOrder="50" dependsOnModule="Storenameaslkd_ModuleCrud" resource="Storenameaslkd_ModuleCrud::greetings"/>
+        <add id="Storenameaslkd_ModuleCrud::add_row" title="Manage FAQ" translate="title" module="Storenameaslkd_ModuleCrud" parent="Storenameaslkd_ModuleCrud::greetings" sortOrder="10" dependsOnModule="Storenameaslkd_ModuleCrud" action="grid/grid" resource="Storenameaslkd_ModuleCrud::add_row"/>
+        <add id="Storenameaslkd_ModuleCrud::hello_configuration" title="Configuration" module="Storenameaslkd_ModuleCrud" sortOrder="99" parent="Storenameaslkd_ModuleCrud::greetings" action="adminhtml/system_config/edit/section/greetings" resource="Storenameaslkd_ModuleCrud::greetings_configuration"/>
+
+    </menu>
+</config>

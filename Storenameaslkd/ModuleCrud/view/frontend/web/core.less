@@ -1,0 +1,105 @@
+.row_faq {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    ul {
+        width: 60%;
+        list-style: none;
+        li {
+            border-bottom: 1px solid #bdbdbd;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            .title {
+                font-size: 24px;
+                width: 100%;
+                float: left;
+                margin-bottom: 10px;
+                color: #000;
+                padding-left: 30px;
+                cursor: pointer;
+            }
+            .text {
+                font-size: 18px;
+                padding-left: 30px;
+                display: none;
+                padding-bottom: 15px;
+            }
+            &:before {
+                position: absolute;
+                left: 0;
+                top: -5px;
+                content: "+";
+                font-size: 32px;
+                width: 20px;
+                height: 20px;
+                color: #000;
+
+            }
+            &.open {
+                .text {
+                    display: block;
+                }
+            }
+            &.open:before {
+                display: none;
+            }
+            &.open:after{
+                position: absolute;
+                left: 1px;
+                top: 13px;
+                content: "";
+                font-size: 20px;
+                width: 15px;
+                height: 3px;
+                border-bottom: 3px solid #000;
+            }
+        }
+
+    }
+    &_form {
+        width: 25%;
+        background: #5a6465;
+        padding: 40px 50px 60px;
+        color: #fff;
+        font-size: 30px;
+        textarea {
+            background: #b7b7b7;
+            color: #fff;
+            resize: none;
+            height: 150px;
+            outline: none;
+            margin: 10px 0;
+            &::placeholder {
+                color: #fff;
+            }
+        }
+        .sbmt {
+            background: #f7941d;
+            padding: 12px 50px;
+            border-radius: 5px;
+            color: #fff;
+            font-size: 22px;
+            text-transform: uppercase;
+            border: none;
+            outline: none;
+        }
+        .title-ask {
+            color: #fff;
+            font-size: 20px;
+            a {
+                cursor: pointer;
+                color: #fff;
+            }
+        }
+    }
+    .thanks-hide {
+        display: none;
+    }
+}
+.sidebar {
+    display: none;
+}
+.page-layout-3columns .column.main {
+    width: 100%;
+}
