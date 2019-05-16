@@ -34,7 +34,7 @@ class InstallSchema implements InstallSchemaInterface{
                 ], 'Post Post Content')
 
 
-                ->addColumn('name', Table::TYPE_TEXT, null, [
+                ->addColumn('name', Table::TYPE_INTEGER, null, [
                     'length' => 255,
                     'nullable' => false
                 ], 'Post Name')
@@ -52,6 +52,19 @@ class InstallSchema implements InstallSchemaInterface{
                     'nullable' => false,
                     'default' => Table::TIMESTAMP_INIT
                 ], 'Created At')
+
+                ->addForeignKey(
+                    $installer->getFkName(
+                        'customer_entity',
+                        'entity_id',
+                        'post',
+                        'name'
+                    ),
+                    'entity_id',
+                    $installer->getTable('post'),
+                    'name',
+                    \Magento\Framework\DB\Ddl\Table::ACTION_CASCADE
+                )
 
 
                 ->setComment('Post Table');

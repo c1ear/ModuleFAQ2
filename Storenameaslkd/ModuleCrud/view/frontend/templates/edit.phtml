@@ -1,0 +1,8 @@
+<?php  $record = $block->getEditRecord();?>
+
+<form action='/crudmodule/index/save/' enctype='multipart/form-data' method='post' novalidate='novalidate'>
+    <input name="editRecordId" type="hidden" value="<?php echo $record['post_id'];?>" />
+    <input name="tags" autocomplete="off" id="tags_ed" type="text" value="<?php echo $record['tags'];?>"/>
+    <input name="post_content" autocomplete="off" id="post_content" type="text" value="<?php echo $record['post_content'];?>"/>
+    <input type="submit" value="Save"/>
+</form>

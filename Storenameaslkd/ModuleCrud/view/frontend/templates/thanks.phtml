@@ -1,46 +1,46 @@
+<?php
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$customerSession = $objectManager->create('Magento\Customer\Model\Session');
+if ($customerSession->isLoggedIn()) {
+    $customerSession->getCustomerId();  // get Customer Id
+    $customerSession->getCustomerGroupId();
+    $customerSession->getCustomer();
+    $customerSession->getCustomerData();
+}
+?>
+<?php  $record = $block->getEditRecord();?>
+
 <div class="row_faq">
     <ul>
-        <?php
-        $collection = $block->getResult(); foreach($collection as $item) {
-        if($item['status'] == '1') {
-            ?>
-        <li>
-            <div class="title"><?php echo $item->getData('tags'); ?></div>
-            <div class="text"><?php echo $item->getData('post_content'); ?></div>
-            <!--  <div>
-                <?php echo $item->getData('created_at'); ?>
-                <a href="<?php echo $block->getUrl('crudmodule/index/edit').'?id='.$item->getData('post_id'); ?>" class="action primary">Edit</a>
-                <a href="<?php echo $block->getUrl('crudmodule/index/delete').'?id='.$item->getData('post_id'); ?>" class="action primary">Delete</a>
-            </div> -->
-        </li>
-        <?php } }?>
+        <?php $collection = $block->getResult(); foreach($collection as $item) { if($item['status'] == '1') { ?>
+            <li>
+                <div class="title"><?php echo $item->getData('tags'); ?></div>
+                <div class="text"><?php echo $item->getData('post_content'); ?></div>
+                <?php if($item->getData('name') == $customerSession->getCustomer()->getId()) { ?>
+                    <div class="controls">
+                        <a href="<?php echo $block->getUrl('crudmodule/index/edit').'?id='.$item->getData('post_id'); ?>" class="action primary">Edit</a>
+                        <a href="<?php echo $block->getUrl('crudmodule/index/delete').'?id='.$item->getData('post_id'); ?>" class="action primary">Delete</a>
+                    </div>
+                <?php } ?>
+            </li>
+        <?php } } ?>
     </ul>
 
-    <?php
-    $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
-    $customerSession = $objectManager->create('Magento\Customer\Model\Session');
-    if ($customerSession->isLoggedIn()) {
-        $customerSession->getCustomerId();  // get Customer Id
-        $customerSession->getCustomerGroupId();
-        $customerSession->getCustomer();
-        $customerSession->getCustomerData();
-    }
-    ?>
 
-    <?php  $record = $block->getEditRecord();?>
     <div class="row_faq_form">
-        <div class="title-ask">Thanks for question <br> <a class="title-ask-link">Ask more question....</a></div>
         <div class="title thanks-hide">Ask me question</div>
-        <form action='/crudmodule/index/save/' id="ajax_form_mage" enctype='multipart/form-data' method='post' novalidate='novalidate' class="thanks-hide">
+        <div class="title-ask ">Thanks for question <br> <a class="title-ask-link">Ask more question....</a></div>
+        <form id="ajax_form_mage" enctype='multipart/form-data' method='post' novalidate='novalidate' class="thanks-hide">
             <input name="editRecordId" type="hidden" value="<?php echo $record['post_id'];?>" />
             <input name="name" type="hidden" id="name" value="<?php echo $customerSession->getCustomer()->getId(); ?>" />
-
-            <?php    if ($customerSession->isLoggedIn()) { ?>
+            <?php  if ($customerSession->isLoggedIn()) { ?>
                 <textarea name="tags" autocomplete="off" id="tags" type="text"  value="<?php echo $record['tags'];?>" placeholder="Question" onkeyup="checkF()" ></textarea>
-                <input type="submit" class="sbmt" disabled="disabled" value="SEND"/>
+                <input type="submit" class="sbmt" value="SEND"/>
             <?php  } else { ?>
-               <div class="alert_form">You must be logged for ask a question!</div>
+                <div class="alert_form">You must be logged for ask a question!</div>
             <?php  };?>
         </form>
+
+
     </div>
 </div>
