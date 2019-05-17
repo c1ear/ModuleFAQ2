@@ -5,6 +5,7 @@ require(['jquery', 'jquery/ui'], function($){
 
 
 
+
     $(document).ready(function(){
 
 /*
@@ -21,6 +22,7 @@ require(['jquery', 'jquery/ui'], function($){
         });
 */
 
+
         $('.sbmt').click(function(e){
             var t = document.getElementById('tags').value;
             if (t.length > 5) {
@@ -28,7 +30,7 @@ require(['jquery', 'jquery/ui'], function($){
                 e.stopImmediatePropagation();
                 $.ajax({
                     type: 'post',
-                    url: 'http://testsite/crudmodule/index/save/',
+                    url: '/crudmodule/index/save/',
                     data: $('#ajax_form_mage').serialize(),
                     cache: false,
                     showLoader: 'true',
