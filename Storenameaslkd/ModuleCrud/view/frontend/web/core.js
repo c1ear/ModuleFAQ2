@@ -1,27 +1,6 @@
 require(['jquery', 'jquery/ui'], function($){
-
-
-
-
-
-
-
-    $(document).ready(function(){
-
-/*
-        $('.sbmt').click(function(e){
-            var t = document.getElementById('tags').value;
-            if (t.length < 5) {
-                e.preventDefault();
-                $('.alert-form').hide();
-                $('#tags').after('<div class="alert-form">Enter at least 5 characters</div>');
-
-            } else {
-
-            }
-        });
-*/
-
+$(document).ready(function(){
+    
 
         $('.sbmt').click(function(e){
             var t = document.getElementById('tags').value;
@@ -36,7 +15,7 @@ require(['jquery', 'jquery/ui'], function($){
                     showLoader: 'true',
                     success: function() {
                         $('#tags').val('');
-                        alert('Thanks for question');
+                      /*  alert('Thanks for question');*/
 
                     }
                 });
@@ -48,8 +27,6 @@ require(['jquery', 'jquery/ui'], function($){
             }
 
         });
-
-
 
 
 
@@ -65,16 +42,6 @@ require(['jquery', 'jquery/ui'], function($){
 
     });
 
-/*
-    $(document).on('keyup', '#ajax_form_mage textarea[name="tags"]', function(e) {
-        var t = document.getElementById('tags').value;
-        if (t.length > 5) {
-            $(".sbmt").attr("disabled", false);
-        } else {
-            $(".sbmt").attr("disabled", true);
-        }
-    });
- */
     $(document).on('keyup', '#ajax_form_mage textarea[name="tags"]', function() {
         $('.alert-form').hide();
     });

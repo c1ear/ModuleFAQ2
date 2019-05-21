@@ -13,7 +13,6 @@ class Post extends AbstractModel {
     public function getDefaultValues()
     {
         $values = [];
-
         return $values;
     }
 }
